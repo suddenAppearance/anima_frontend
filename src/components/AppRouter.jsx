@@ -1,48 +1,18 @@
-import React, {useContext} from 'react';
-import {Navigate, Route, Routes} from "react-router-dom";
-import {privateRoutes, publicRoutes} from "../router/routes";
-import {AuthContext} from "../context";
-import Loader from "./UI/Loader/Loader";
+import React from 'react';
+import {Route, Routes} from "react-router-dom";
 
 const AppRouter = () => {
-    const {isAuth, setIsAuth, isLoading} = useContext(AuthContext)
-
-    if (isLoading) {
-        return <Loader/>
-    }
-
     return (
-        isAuth
-            ?
-            <Routes>
-                {privateRoutes.map(route =>
-                    <Route
-                        path={route.path}
-                        element={route.component}
-                        key={route.path}
-                    ></Route>
-                )}
-                <Route
-                    path="*"
-                    element={<Navigate to="/posts" replace/>}
-                >
-                </Route>
-            </Routes>
-            :
-            <Routes>
-                {publicRoutes.map(route =>
-                    <Route
-                        path={route.path}
-                        element={route.component}
-                        key={route.path}
-                    ></Route>
-                )}
-                <Route
-                    path="*"
-                    element={<Navigate to="/login" replace/>}
-                >
-                </Route>
-            </Routes>
+        <Routes>
+            <Route path="/" element={<div>Главная</div>}>
+            </Route>
+            <Route path="/toUsers" element={<div>Пользователям</div>}>
+            </Route>
+            <Route path="/toCompanies" element={<div>Компаниям</div>}>
+            </Route>
+            <Route path="/profile" element={<div>Профиль</div>}></Route>
+            }
+        </Routes>
     );
 };
 
