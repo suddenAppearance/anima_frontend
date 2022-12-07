@@ -1,7 +1,0 @@
-{
-  "auth-server-url": "http://192.168.1.114:8787/auth",
-  "realm": "anima",
-  "resource": "account",
-  "enable-cors": true,
-  "ssl-required": "external"
-}

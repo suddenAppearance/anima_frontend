@@ -31,3 +31,8 @@
 .logo {
     align-self: center;
 }
+
+.body {
+    margin-top: 30px;
+    align-self: center;
+}

@@ -15,6 +15,11 @@ const Navbar = () => {
                     <h2>Anima</h2>
                 </Navlink>
             </div>
+            <div>
+                <Navlink to="/projects">
+                    Проекты
+                </Navlink>
+            </div>
             <div className="navlinks">
                 <Navlink to="/toUsers">
                     Пользователям
@@ -23,7 +28,7 @@ const Navbar = () => {
                     Компаниям
                 </Navlink>
                 {keycloak?.authenticated &&
-                    <Navlink to="/profile">Профиль</Navlink>
+                    <Navlink to="/profile">{keycloak?.idTokenParsed.email}</Navlink>
                 }
                 {keycloak?.authenticated
                     ? <Navlink onClick={() => keycloak.logout()} to="/">Выйти</Navlink>
