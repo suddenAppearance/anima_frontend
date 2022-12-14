@@ -1,8 +1,9 @@
 .greenButton {
-    padding: 5px 15px;
-    color: green;
+    padding: 5px 10px;
+    color: mediumseagreen;
     font-size: 14px;
+    font-weight: bold;
     background: transparent;
-    border: 1px solid teal;
+    border: none;
     cursor: pointer;
 }

@@ -5,6 +5,7 @@ import ProjectsForm from "../components/ProjectsForm";
 import {useFetching} from "../hooks/useFetching";
 import {useProjectService} from "../hooks/useProjectService";
 import {useKeycloak} from "@react-keycloak/web";
+import ProjectsList from "../components/ProjectsList";
 
 const Projects = () => {
     const {keycloak} = useKeycloak()
@@ -13,7 +14,8 @@ const Projects = () => {
 
     const projectService = useProjectService()
     const [sendProject, isProjectSending, projectSendError] = useFetching(async (project) => {
-        const projectResponse = projectService.createProject(project)
+        const projectResponse = await projectService.createProject(project)
+        setProjects([...projects, projectResponse.data])
     })
     const [getProjects, isProjectsGetting, projectsGetError] = useFetching(async () => {
         const projectResponse = await projectService.getProjects()
@@ -22,7 +24,8 @@ const Projects = () => {
 
 
     useEffect(() => {
-        const projects = getProjects()
+        if (keycloak?.authenticated)
+            getProjects()
     }, [keycloak?.authenticated])
 
     const createProject = async (project) => {
@@ -32,10 +35,9 @@ const Projects = () => {
 
     return (
         <div>
-            <GreenButton onClick={() => setModal(true)}>
-                Создать проект
-            </GreenButton>
-            {projects?.map(project => <div key={project.id}>{JSON.stringify(project)}</div>)}
+            {projects?.length &&
+                <ProjectsList projects={projects} setModal={setModal}/>
+            }
             <Modal visible={modal} setVisible={setModal}>
                 <ProjectsForm createProject={createProject}/>
             </Modal>
