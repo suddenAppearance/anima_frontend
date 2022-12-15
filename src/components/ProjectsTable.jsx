@@ -23,7 +23,7 @@ const ProjectsTable = ({projects}) => {
                 const date = new Date(project.created_at)
                 const author = project.author
                 return (
-                    <Link to={"/projects/" + project.id} className={cs.projectTableRow}>
+                    <Link to={"/projects/" + project.id} key={project.id} className={cs.projectTableRow}>
                         <div className={cs.projectTableData} style={{width: "10%"}}>
                             <div>{project.id}</div>
                         </div>

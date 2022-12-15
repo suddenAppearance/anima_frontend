@@ -19,4 +19,8 @@ export default class ProjectService {
     async getProjects() {
         return this.http.get("/api/v1/projects/")
     }
+
+    async getProject(id) {
+        return this.http.get(`/api/v1/projects/${id}/`)
+    }
 }

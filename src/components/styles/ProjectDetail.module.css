@@ -1,0 +1,48 @@
+.projectDetail {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    padding-top: 30px;
+}
+
+.heading {
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.projectInfoBlock {
+    width: 50%;
+}
+
+.category {
+    padding-top: 30px;
+}
+
+.categoryHeading {
+    font-weight: bolder;
+    font-size: 16px;
+}
+
+.infoRow {
+    padding-top: 10px;
+    display: flex;
+}
+
+.infoLabel {
+    color: gray;
+}
+
+.infoPlaintext {
+    color: #555;
+}
+
+.infoValue {
+    margin-left: auto;
+    color: #555;
+}
+
+.animationsList {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 10px;
+}

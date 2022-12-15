@@ -1,0 +1,26 @@
+.animationCard {
+    border: lightgray solid 1px;
+    border-radius: 20px;
+    width: min-content;
+    margin: 0 10px 10px 0;
+}
+
+.animationCardTitle {
+    text-align: center;
+    padding: 5px 20px;
+    border-bottom: lightgray solid 1px;
+}
+
+.animationCardPreview {
+    align-items: center;
+}
+
+
+.animationCardFooter {
+    padding: 5px 20px;
+    font-size: 14px;
+    font-weight: lighter;
+    text-align: right;
+    color: gray;
+    border-top: lightgray solid 1px;
+}
