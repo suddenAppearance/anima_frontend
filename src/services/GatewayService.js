@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default class ProjectService {
+export default class GatewayService {
     constructor(keycloak) {
         const kcToken = keycloak?.token ?? '';
         this.http = axios.create({
@@ -12,15 +12,4 @@ export default class ProjectService {
         })
     }
 
-    async createProject(project) {
-        return this.http.post("/api/v1/projects/", project)
-    }
-
-    async getProjects() {
-        return this.http.get("/api/v1/projects/")
-    }
-
-    async getProject(id) {
-        return this.http.get(`/api/v1/projects/${id}/`)
-    }
 }

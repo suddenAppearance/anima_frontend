@@ -15,17 +15,17 @@ const Navbar = () => {
                     <h2>Anima</h2>
                 </Navlink>
             </div>
-            <div>
-                <Navlink to="/projects">
-                    Проекты
+            <div className="navlinks-left">
+                <Navlink to="/characters">
+                    Персонажи
+                </Navlink>
+                <Navlink to="/animations">
+                    Анимации
                 </Navlink>
             </div>
-            <div className="navlinks">
+            <div className="navlinks-right">
                 <Navlink to="/toUsers">
                     Пользователям
-                </Navlink>
-                <Navlink to="/toCompanies">
-                    Компаниям
                 </Navlink>
                 {keycloak?.authenticated &&
                     <Navlink to="/profile">{keycloak?.idTokenParsed.email}</Navlink>

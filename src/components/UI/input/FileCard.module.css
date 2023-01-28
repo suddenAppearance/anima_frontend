@@ -1,0 +1,39 @@
+.fileCard {
+    display: flex;
+    min-width: 250px;
+    padding-right: 20px;
+    border-radius: 5px;
+    transition: background-color .2s ease-out;
+}
+.fileCard:hover {
+    background: lightgray;
+    transition: background-color .2s ease-out;
+}
+
+.fileName {
+    min-width: min-content;
+    align-self: start;
+}
+
+.animationCardPreview {
+    margin: 10px;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    min-height: 80px;
+    min-width: 80px;
+}
+
+.fileInfo {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-left: 10px;
+}
+
+.fileSecondaryInfo {
+    font-size: 14px;
+    color: gray;
+}

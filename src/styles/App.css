@@ -5,7 +5,9 @@
     font-family: Golos, monospace;
 }
 
-img { display:block; }
+img {
+    display: block;
+}
 
 a {
     color: inherit; /* blue colors for links too */
@@ -21,6 +23,12 @@ a {
     width: 800px;
 }
 
+.form-heading {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .navbar {
     height: 50px;
     display: flex;
@@ -30,7 +38,11 @@ a {
     align-items: center;
 }
 
-.navlinks {
+.navlinks-left {
+    display: flex;
+}
+
+.navlinks-right {
     display: flex;
     margin-left: auto;
 }
@@ -42,4 +54,19 @@ a {
 .body {
     margin-top: 30px;
     align-self: center;
+}
+
+*::-webkit-scrollbar {
+    width: 5px;
+    margin: 20px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 0, 0.5);
+    border-radius: 20px;
+    border: 1px solid rgba(200, 200, 200, 0.5);
 }
