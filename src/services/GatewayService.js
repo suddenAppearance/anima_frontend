@@ -12,4 +12,8 @@ export default class GatewayService {
         })
     }
 
+    async getFiles() {
+        return this.http.get("/api/v1/files/")
+    }
+
 }
