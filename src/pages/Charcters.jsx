@@ -11,7 +11,6 @@ const Characters = () => {
     const [getFiles, isLoadingFiles, getFilesError] = useFetching(async () => {
         let response = await gateway.getFiles()
         if (response.status === 200) {
-            console.log(response)
             setFiles(response.data)
         } else setFiles([])
     })
@@ -20,7 +19,14 @@ const Characters = () => {
             getFiles()
     }, [keycloak.authenticated])
     return (
-        <div>{files.map((file) => <CharacterCard key={file.id} character={file}/>)}</div>
+        <div className="characters">
+            <div className="characters-container">
+                {files.map((file) => <CharacterCard key={file.id} character={file}/>)}
+            </div>
+            <div className="character-scene">
+                Test
+            </div>
+        </div>
     );
 };
 

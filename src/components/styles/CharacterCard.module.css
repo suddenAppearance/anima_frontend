@@ -1,0 +1,20 @@
+.Card {
+    width: 20%;
+    height: 150px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 20px 10px 0 10px;
+}
+
+.Footer {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    justify-items: center;
+}
+
+.Filename {
+    width: min-content;
+    margin-left: 10px;
+    font-size: 14px;
+    color: #555;
+}

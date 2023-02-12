@@ -70,3 +70,16 @@ a {
     border-radius: 20px;
     border: 1px solid rgba(200, 200, 200, 0.5);
 }
+
+.characters {
+    display: flex;
+}
+
+.characters-container {
+    display: flex;
+    width: 50%;
+}
+
+.character-scene {
+    margin-top: 20px;
+}
