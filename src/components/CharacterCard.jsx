@@ -10,7 +10,7 @@ const CharacterCard = ({character}) => {
         <div className={classes.Card}>
             <Canvas>
                 <Suspense fallback={null}>
-                    <CharacterModel URL={character.download_url}/>
+                    <CharacterModel URL={character.file.download_url}/>
                     <Environment
                         files="https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@environment/public/img/venice_sunset_1k.hdr"
                         background
@@ -22,7 +22,7 @@ const CharacterCard = ({character}) => {
                 </Suspense>
             </Canvas>
             <div className={classes.Footer}>
-                <div className={classes.Filename}>{character.initial_filename}</div>
+                <div className={classes.Filename}>{character.title}</div>
             </div>
         </div>
     );

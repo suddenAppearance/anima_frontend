@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom";
 import Profile from "../pages/Profile";
-import Characters from "../pages/Charcters";
+import Characters from "../pages/Characters";
 import UserGuide from "../pages/UserGuide";
 
 const AppRouter = () => {
