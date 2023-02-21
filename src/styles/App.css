@@ -81,5 +81,6 @@ a {
 }
 
 .character-scene {
-    margin-top: 20px;
+    height: 70vh;
+    width: 50vw;
 }

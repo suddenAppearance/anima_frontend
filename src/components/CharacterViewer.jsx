@@ -1,14 +1,15 @@
 import React, {Suspense} from 'react';
-import {Environment, Html, PerspectiveCamera, Stage} from "@react-three/drei";
-import CharacterModel from "./CharacterModel";
 import {Canvas} from "@react-three/fiber";
+import {Environment, OrbitControls, PerspectiveCamera, Stage} from "@react-three/drei";
+import CharacterModel from "./CharacterModel";
+import classes from "./styles/CharacterViewer.module.css"
 
-import classes from "./styles/CharacterCard.module.css"
-
-
-const CharacterCard = ({character, setCharacter}) => {
+const CharacterViewer = ({character}) => {
     return (
-        <div className={classes.Card} onClick={() => setCharacter(character)}>
+        <div className={classes.characterViewCard}>
+            <div>
+                {character.title}
+            </div>
             <Canvas>
                 <Suspense fallback={null}>
                     <PerspectiveCamera>
@@ -21,14 +22,14 @@ const CharacterCard = ({character, setCharacter}) => {
                                 background
                                 blur={0.5}
                             />
+                            <OrbitControls/>
                             <directionalLight position={[3.3, 1.0, 4.4]}/>
                         </mesh>
                     </PerspectiveCamera>
                 </Suspense>
             </Canvas>
-            <div className={classes.Title}>{character.title}</div>
         </div>
     );
 };
 
-export default CharacterCard;
+export default CharacterViewer;
