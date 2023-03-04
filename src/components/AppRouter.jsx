@@ -1,20 +1,20 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom";
 import Profile from "../pages/Profile";
-import Characters from "../pages/Characters";
+import Main from "../pages/Main";
 import UserGuide from "../pages/UserGuide";
 
 const AppRouter = () => {
     return (
         <Routes>
-            <Route path="/" element={<div>Главная</div>}>
+            <Route key="index" path="/" element={<div>Главная</div>}>
             </Route>
-            <Route path="/toUsers" element={<UserGuide/>}>
+            <Route key="toUsers" path="/toUsers" element={<UserGuide/>}>
             </Route>
-            <Route path="/profile" element={<Profile/>}></Route>
-            <Route path="/characters" element={<Characters/>}>
+            <Route key="profile" path="/profile" element={<Profile/>}></Route>
+            <Route key="characters" path="/characters" element={<Main route="characters" />}>
             </Route>
-            <Route path="/animations" element={<div>Анимации</div>}>
+            <Route key="animations" path="/animations" element={<Main route="animations"/>}>
             </Route>
         </Routes>
     );

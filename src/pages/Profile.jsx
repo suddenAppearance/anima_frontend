@@ -5,7 +5,6 @@ import ProfileInfo from "../components/ProfileInfo";
 const Profile = () => {
     const {keycloak} = useKeycloak()
     if (keycloak?.authenticated){
-        console.log(keycloak.token)
     }
     return (
         <div>

@@ -12,8 +12,8 @@ export default class GatewayService {
         })
     }
 
-    async getFiles() {
-        return this.http.get("/api/v1/files/", {params: {type: "CHARACTER"}})
+    async getFiles(type) {
+        return this.http.get("/api/v1/files/", {params: {type: type}})
     }
 
 }

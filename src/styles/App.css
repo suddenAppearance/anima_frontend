@@ -77,10 +77,12 @@ a {
 
 .characters-container {
     display: flex;
-    width: 50%;
+    width: 50vw;
+    flex-wrap: wrap;
 }
 
 .character-scene {
+    margin-left: auto;
     height: 70vh;
     width: 50vw;
 }
