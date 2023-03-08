@@ -27,7 +27,6 @@ const CharacterFBXModel = ({URL, animation}) => {
     useFrame((state, delta) => {
         mixer?.update(delta)
     })
-
     return (
         <mesh>
             <primitive object={modelCopy}/>

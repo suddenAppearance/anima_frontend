@@ -1,0 +1,38 @@
+.uploadFile {
+    display: flex;
+    margin: 20px 10px;
+}
+
+.uploadFileButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    border-radius: 4px;
+    background-color: #CCC;
+    width: fit-content;
+    padding: 0 20px;
+    line-height: 22px;
+    height: 40px;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.uploadFileText {
+    color: #555555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.uploadFile input[type=file] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+}

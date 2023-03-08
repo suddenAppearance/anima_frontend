@@ -1,10 +1,11 @@
 import React from 'react';
 import {useKeycloak} from "@react-keycloak/web";
 import ProfileInfo from "../components/ProfileInfo";
+import UploadModel from "../components/UploadModel";
 
 const Profile = () => {
     const {keycloak} = useKeycloak()
-    if (keycloak?.authenticated){
+    if (keycloak?.authenticated) {
     }
     return (
         <div>
@@ -15,6 +16,7 @@ const Profile = () => {
                 />
                 : ""
             }
+            <UploadModel/>
         </div>
     );
 };

@@ -16,4 +16,14 @@ export default class GatewayService {
         return this.http.get("/api/v1/files/", {params: {type: type}})
     }
 
+    async uploadFile(file) {
+        let formData = new FormData();
+        formData.append("file", file)
+        return this.http.put("/api/v1/files/", formData, {headers: {'Content-Type': 'multipart/formdata'}})
+    }
+
+    async uploadMeta(meta) {
+        console.log(meta)
+        return this.http.post("/api/v1/files/", meta)
+    }
 }
