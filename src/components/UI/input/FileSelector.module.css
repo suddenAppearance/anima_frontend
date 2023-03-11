@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     color: #333;
     border-radius: 4px;
     background-color: #CCC;
@@ -18,6 +18,10 @@
     height: 40px;
     border: none;
     transition: background-color 0.2s;
+}
+
+.uploadFileButton:hover {
+    background-color: #DDD;
 }
 
 .uploadFileText {

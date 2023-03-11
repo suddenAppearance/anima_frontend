@@ -1,0 +1,13 @@
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.nameField {
+    color: gray;
+}
+
+.emailField {
+    color: gray;
+}

@@ -1,18 +1,16 @@
 import React from 'react';
+import classes from "./styles/ProfileInfo.module.css"
 
-const ProfileInfo = ({name, email, session}) => {
+const ProfileInfo = ({name, email}) => {
 
 
     return (
-        <div>
-            <div>
+        <div className={classes.profileContainer}>
+            <div className={classes.nameField}>
                 {name}
             </div>
-            <div>
+            <div className={classes.emailField}>
                 {email}
-            </div>
-            <div>
-                {session}
             </div>
         </div>
     );

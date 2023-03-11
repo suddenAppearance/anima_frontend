@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import FileSelector from "./UI/input/FileSelector";
 import {useGateway} from "../hooks/useGateway";
 import {useFetching} from "../hooks/useFetching";
+import classes from "./styles/UploadModel.module.css"
 
 const UploadModel = () => {
     const gateway = useGateway()
@@ -13,16 +14,22 @@ const UploadModel = () => {
         return response
     })
     const handleSubmitModel = async () => {
-        console.log(await uploadModel())
+        await uploadModel()
+        setFile(undefined)
+        setFileInfo({title: null, file_id: null, type: "CHARACTER"})
     }
     return (
-        <div style={{margin: "10px 0px"}}>
-            <div>Загрузить модель</div>
-            <label>
-                <input onChange={(e) => setFileInfo({...fileInfo, title: e.target.value})} required/>
+        <div className={classes.uploadModelForm}>
+            <div className={classes.formTitle}>Загрузить модель</div>
+            <label className={classes.formInputLabel}>
+                <input
+                    className={classes.formInput} onChange={(e) => setFileInfo({...fileInfo, title: e.target.value})}
+                       required
+                       value={fileInfo.title}
+                    placeholder="Имя персонажа"/>
             </label>
             <FileSelector file={file} setFile={setFile}/>
-            <button onClick={handleSubmitModel}>Загрузить</button>
+            <button className={classes.uploadButton} onClick={handleSubmitModel}>Загрузить персонажа</button>
         </div>
     );
 };

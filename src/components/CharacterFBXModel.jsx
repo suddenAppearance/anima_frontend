@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useMemo} from 'react';
 import {useFrame, useLoader} from "@react-three/fiber";
 import {FBXLoader} from "three/addons/loaders/FBXLoader";
 import THREE from "three.js";
