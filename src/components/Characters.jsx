@@ -1,15 +1,14 @@
 import React from 'react';
 import CharacterCard from "./CharacterCard";
 
-const Characters = ({files, setCharacter, animation}) => {
-    return (<div className="characters-container">
-        {files.map((file) => <CharacterCard
-            setCharacter={setCharacter}
-            key={file.file_id}
-            character={file}
-            animation={animation}
-            title={file.title}/>)}
-    </div>);
+const Characters = ({charactersFiles, setCharacter}) => {
+    return (
+        <div className="cards-container">
+            {charactersFiles.map(
+                (charactersFile) => <CharacterCard character={charactersFile} key={charactersFile.file_id} setCharacter={setCharacter}/>
+            )}
+        </div>
+    );
 };
 
 export default Characters;

@@ -76,7 +76,7 @@ a {
     display: flex;
 }
 
-.characters-container {
+.cards-container {
     display: flex;
     width: 50vw;
     flex-wrap: wrap;

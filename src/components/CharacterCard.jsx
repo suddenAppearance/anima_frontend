@@ -1,31 +1,25 @@
 import React, {Suspense} from 'react';
-import {Environment, Html, PerspectiveCamera, Stage} from "@react-three/drei";
+import {Environment, PerspectiveCamera, Stage} from "@react-three/drei";
 import CharacterFBXModel from "./CharacterFBXModel";
 import {Canvas} from "@react-three/fiber";
 
 import classes from "./styles/CharacterCard.module.css"
-import CharacterGLTFModel from "./CharacterGLTFModel";
+import Loader from "./Loader";
 
 
-const CharacterCard = ({character, setCharacter, animation, title, setAnimation}) => {
+const CharacterCard = ({character, setCharacter}) => {
     return (
         <div className={classes.Card}
-             onClick={() =>
-                 setCharacter ?
-                     setCharacter(character) :
-                     setAnimation ?
-                         setAnimation(animation) :
-                         null
-        }>
+             onClick={() => setCharacter(character)}
+        >
             <Canvas>
-                <Suspense fallback={null}>
+                <Suspense fallback={<Loader/>}>
                     <PerspectiveCamera>
                         <mesh>
                             <Stage>
-                                {character.file.initial_filename.endsWith(".fbx") ?
-                                    <CharacterFBXModel URL={character.file.download_url}
-                                                       animation={animation?.file.download_url}/> :
-                                    <CharacterGLTFModel URL={character.file.download_url}/>}
+                                <CharacterFBXModel
+                                    URL={character.file.download_url}
+                                />
                             </Stage>
                             <Environment
                                 files="https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@environment/public/img/venice_sunset_1k.hdr"
@@ -37,7 +31,7 @@ const CharacterCard = ({character, setCharacter, animation, title, setAnimation}
                     </PerspectiveCamera>
                 </Suspense>
             </Canvas>
-            <div className={classes.Title}>{title}</div>
+            <div className={classes.Title}>{character.title}</div>
         </div>
     );
 };

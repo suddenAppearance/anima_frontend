@@ -5,7 +5,7 @@ export default class GatewayService {
         const kcToken = keycloak?.token ?? '';
         this.http = axios.create({
             baseURL: process.env.REACT_APP_API_GATEWAY_HOST,
-            timeout: 1000,
+            timeout: 30000,
             headers: {
                 Authorization: keycloak ? `Bearer ${kcToken}` : undefined,
             }
@@ -14,6 +14,10 @@ export default class GatewayService {
 
     async getFiles(type) {
         return this.http.get("/api/v1/files/", {params: {type: type}})
+    }
+
+    async animate(modelId, animationId) {
+        return this.http.post(`api/v1/models/${modelId}:animate/${animationId}/`)
     }
 
     async uploadFile(file) {

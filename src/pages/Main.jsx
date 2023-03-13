@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {useGateway} from "../hooks/useGateway";
 import {useFetching} from "../hooks/useFetching";
 import {useKeycloak} from "@react-keycloak/web";
-import CharacterCard from "../components/CharacterCard";
 import CharacterViewer from "../components/CharacterViewer";
 import Characters from "../components/Characters";
 import Animations from "../components/Animations";
@@ -18,6 +17,7 @@ const Main = ({route}) => {
         let response = await gateway.getFiles("CHARACTER")
         if (response.status === 200) {
             setCharacterFiles(response.data)
+            if (characterFiles.length) {setCharacter(characterFiles[0])}
         } else setCharacterFiles([])
     })
     const [getAnimationFiles, isLoadingAnimationFiles, getAnimationFilesError] = useFetching(async () => {
@@ -36,10 +36,10 @@ const Main = ({route}) => {
     return (
         <div className="characters">
             {route === "characters" &&
-                <Characters files={characterFiles} setCharacter={setCharacter} animation={animation}/>
+                <Characters charactersFiles={characterFiles} setCharacter={setCharacter}/>
             }
             {route === "animations" && character &&
-                <Animations animations={animationFiles} file={character} setAnimation={setAnimation}/>
+                <Animations animationFiles={animationFiles} setAnimation={setAnimation}/>
             }
             <div className="character-scene">
                 {character

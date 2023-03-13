@@ -15,8 +15,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
+    "react-three-fiber": "^6.0.13",
     "react-transition-group": "^4.4.5",
-    "three": "^0.149.0",
     "three.js": "^0.77.1",
     "web-vitals": "^2.1.4"
   },

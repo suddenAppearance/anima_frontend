@@ -4,22 +4,17 @@ import {FBXLoader} from "three/addons/loaders/FBXLoader";
 import THREE from "three.js";
 import {SkeletonUtils} from "three-stdlib";
 
-const CharacterFBXModel = ({URL, animation}) => {
+const CharacterFBXModel = ({URL}) => {
     const model = useLoader(FBXLoader, URL)
     const modelCopy = useMemo(() => SkeletonUtils.clone(model), [model])
 
-    const animationModel = useLoader(FBXLoader, animation ? animation : URL)
-
-    if (animation != null) {
-        modelCopy.animations = animationModel.animations
-    } else {
-        modelCopy.animations = []
-    }
+    modelCopy.animations = model.animations
 
     let mixer = new THREE.AnimationMixer(modelCopy)
     if (modelCopy.animations.length) {
         modelCopy.animations.forEach(clip => {
             const action = mixer.clipAction(clip)
+            action.clampWhenFinished = true
             action.play();
         });
     }
