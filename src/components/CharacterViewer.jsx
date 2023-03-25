@@ -30,8 +30,25 @@ const CharacterViewer = ({character, animation}) => {
     }, [animation, character])
 
     return (<div className={classes.characterViewCard}>
-        <div>
-            {character.title}
+        <div className={classes.viewInfo}>
+            <div className={classes.viewInfoRow}>
+                <div className={classes.viewInfoOption}>
+                    Персонаж:
+                </div>
+                <div className={classes.viewInfoOptionValue}>
+                    {character.title}
+                </div>
+            </div>
+            {animation &&
+                <div className={classes.viewInfoRow}>
+                    <div className={classes.viewInfoOption}>
+                        Эффект:
+                    </div>
+                    <div className={classes.viewInfoOptionValue}>
+                        {animation.title}
+                    </div>
+                </div>
+            }
         </div>
         <Canvas>
             <Suspense fallback={<Loader/>}>
@@ -55,6 +72,9 @@ const CharacterViewer = ({character, animation}) => {
                 </PerspectiveCamera>
             </Suspense>
         </Canvas>
+        <div className={classes.downloadAnimatedCharacterButton} onClick={()=> window.open(URL, "_blank")}>
+            Скачать файл
+        </div>
     </div>);
 };
 

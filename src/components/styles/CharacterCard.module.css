@@ -1,19 +1,26 @@
-.Card {
+.card {
     width: 150px;
-    height: 150px;
+    height: fit-content;
     border: 1px solid gray;
     border-radius: 5px;
     margin: 20px 10px 0 10px;
+    transition: background-color .2s;
 }
 
-.Footer {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    justify-items: center;
+.card:hover {
+    background-color: rgba(0,0,0, 0.1);
 }
 
-.Title {
-    width: min-content;
+.card:hover .title {
+    color: #333333;
+}
+
+.cardPreview {
+    height: 130px;
+}
+
+.title {
+    width: fit-content;
     margin-left: 10px;
     font-size: 14px;
     color: #555;

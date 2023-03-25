@@ -3,11 +3,13 @@ import {Route, Routes} from "react-router-dom";
 import Profile from "../pages/Profile";
 import Main from "../pages/Main";
 import UserGuide from "../pages/UserGuide";
+import Index from "../pages/Index";
 
 const AppRouter = () => {
     return (
         <Routes>
-            <Route key="index" path="/" element={<div>Главная</div>}>
+            <Route key="index" path="/" element={<Index/>
+            }>
             </Route>
             <Route key="toUsers" path="/toUsers" element={<UserGuide/>}>
             </Route>

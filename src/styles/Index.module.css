@@ -1,0 +1,19 @@
+.indexPage {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+.indexTitle {
+    font-size: 104px;
+    color: #777;
+}
+
+.indexDescription {
+    color: #AAA;
+}

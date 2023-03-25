@@ -1,17 +1,30 @@
 import React from 'react';
-import {Canvas} from "@react-three/fiber";
-import Box from "../components/Box";
 
 const UserGuide = () => {
 
-    return (
-        <Canvas>
-            <ambientLight/>
-            <pointLight position={[10, 10, 10]}/>
-            <Box position={[-1.2, 0, 0]}/>
-            <Box position={[1.2, 0, 0]}/>
-        </Canvas>
-    );
+    return (<div>
+        <h3>О платформе:</h3>
+        <p>
+            Данная платформа является результатом ВКР студента КФУ, ИТИС Кузоватова Дамира Рашидовича.
+            <br/>
+            <br/>
+            Платформа позволяет копировать 3D модели на желаемую
+        </p>
+        <h3>Дополнительно</h3>
+        <p>
+            Данная платформа не имеет никаких лицензий, ничего не гарантирует и является проектом без всеобщей цели.
+            <br/>
+            <br/>
+            Исходный код платформы доступен по следующим ссылкам:
+            <br/>
+            <a style={{color: 'blue', paddingLeft: '10px'}}
+               href="https://github.com/suddenAppearance/anima_frontend"> Anima Frontend</a>
+            <br/>
+            <a style={{color: 'blue', paddingLeft: '10px'}}
+               href="https://github.com/suddenAppearance/anima_backend"> Anima Backend</a>
+        </p>
+
+    </div>);
 };
 
 export default UserGuide;

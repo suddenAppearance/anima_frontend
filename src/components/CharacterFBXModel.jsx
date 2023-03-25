@@ -9,6 +9,8 @@ const CharacterFBXModel = ({URL}) => {
     const modelCopy = useMemo(() => SkeletonUtils.clone(model), [model])
 
     modelCopy.animations = model.animations
+    modelCopy.animations.forEach((clip) => clip.name = "anima")
+    console.log(modelCopy.animations)
 
     let mixer = new THREE.AnimationMixer(modelCopy)
     if (modelCopy.animations.length) {

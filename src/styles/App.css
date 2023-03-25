@@ -39,6 +39,7 @@ a {
     align-items: center;
 }
 
+
 .navlinks-left {
     display: flex;
 }
@@ -86,8 +87,4 @@ a {
     margin-left: auto;
     height: 70vh;
     width: 50vw;
-}
-
-.upload-file {
-
 }

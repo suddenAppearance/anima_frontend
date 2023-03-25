@@ -9,29 +9,31 @@ import Loader from "./Loader";
 
 const CharacterCard = ({character, setCharacter}) => {
     return (
-        <div className={classes.Card}
+        <div className={classes.card}
              onClick={() => setCharacter(character)}
         >
-            <Canvas>
-                <Suspense fallback={<Loader/>}>
-                    <PerspectiveCamera>
-                        <mesh>
-                            <Stage>
-                                <CharacterFBXModel
-                                    URL={character.file.download_url}
+            <div className={classes.cardPreview}>
+                <Canvas>
+                    <Suspense fallback={<Loader/>}>
+                        <PerspectiveCamera>
+                            <mesh>
+                                <Stage>
+                                    <CharacterFBXModel
+                                        URL={character.file.download_url}
+                                    />
+                                </Stage>
+                                <Environment
+                                    files="https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@environment/public/img/venice_sunset_1k.hdr"
+                                    background
+                                    blur={0.5}
                                 />
-                            </Stage>
-                            <Environment
-                                files="https://cdn.jsdelivr.net/gh/Sean-Bradley/React-Three-Fiber-Boilerplate@environment/public/img/venice_sunset_1k.hdr"
-                                background
-                                blur={0.5}
-                            />
-                            <directionalLight position={[3.3, 1.0, 4.4]}/>
-                        </mesh>
-                    </PerspectiveCamera>
-                </Suspense>
-            </Canvas>
-            <div className={classes.Title}>{character.title}</div>
+                                <directionalLight position={[3.3, 1.0, 4.4]}/>
+                            </mesh>
+                        </PerspectiveCamera>
+                    </Suspense>
+                </Canvas>
+            </div>
+            <div className={classes.title}>{character.title}</div>
         </div>
     );
 };
