@@ -5,7 +5,8 @@ const Characters = ({charactersFiles, setCharacter}) => {
     return (
         <div className="cards-container">
             {charactersFiles.map(
-                (charactersFile) => <CharacterCard character={charactersFile} key={charactersFile.file_id} setCharacter={setCharacter}/>
+                (charactersFile) => <CharacterCard character={charactersFile} key={charactersFile.file_id}
+                                                   setCharacter={setCharacter}/>
             )}
         </div>
     );

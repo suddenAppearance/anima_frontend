@@ -2,4 +2,13 @@
     display: flex;
     color: gray;
     margin-left: 15px;
+    transition: color .2s;
+}
+
+.navlink:hover {
+    color: lightgray;
+}
+
+.active {
+    color: #333;
 }

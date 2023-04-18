@@ -4,7 +4,7 @@ import {useGateway} from "../hooks/useGateway";
 import {useFetching} from "../hooks/useFetching";
 import classes from "./styles/UploadAnimation.module.css"
 
-const UploadAnimation = () => {
+const UploadAnimation = ({setVisible}) => {
     const gateway = useGateway()
     const [file, setFile] = useState()
     const [fileInfo, setFileInfo] = useState({title: null, file_id: null, type: "ANIMATION"})
@@ -17,6 +17,7 @@ const UploadAnimation = () => {
         await uploadAnimation()
         setFile(undefined)
         setFileInfo({title: "", file_id: null, type: "ANIMATION"})
+        setVisible(false)
     }
     return (
         <div className={classes.uploadAnimationForm}>

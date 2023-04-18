@@ -1,0 +1,17 @@
+.timelineBlock {
+    display: flex;
+    margin-top: 10px;
+    align-self: center;
+}
+
+.pause {
+    margin-right: 10px;
+}
+
+.timeline {
+    width: 100%;
+}
+
+.framesInfo {
+    margin-left: 5px;
+}

@@ -4,7 +4,7 @@ import {useGateway} from "../hooks/useGateway";
 import {useFetching} from "../hooks/useFetching";
 import classes from "./styles/UploadModel.module.css"
 
-const UploadModel = () => {
+const UploadModel = ({setVisible}) => {
     const gateway = useGateway()
     const [file, setFile] = useState()
     const [fileInfo, setFileInfo] = useState({title: null, file_id: null, type: "CHARACTER"})
@@ -17,6 +17,7 @@ const UploadModel = () => {
         await uploadModel()
         setFile(undefined)
         setFileInfo({title: null, file_id: null, type: "CHARACTER"})
+        setVisible(false)
     }
     return (
         <div className={classes.uploadModelForm}>

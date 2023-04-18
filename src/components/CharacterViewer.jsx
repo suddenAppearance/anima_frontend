@@ -1,12 +1,12 @@
-import React, {Suspense, useEffect, useState} from 'react';
-import {Canvas} from "@react-three/fiber";
+import React, {Suspense, useEffect, useRef, useState} from 'react';
+import {Canvas, useFrame} from "@react-three/fiber";
 import {
-    Grid,
     Environment,
-    OrbitControls,
-    PerspectiveCamera,
     GizmoHelper,
     GizmoViewport,
+    Html,
+    OrbitControls,
+    PerspectiveCamera,
     Stage
 } from "@react-three/drei";
 import CharacterFBXModel from "./CharacterFBXModel";
@@ -14,14 +14,17 @@ import classes from "./styles/CharacterViewer.module.css"
 import {useGateway} from "../hooks/useGateway";
 import Loader from "./Loader";
 import {useFetching} from "../hooks/useFetching";
+import R3FSlider from "./R3FSlider";
 
 const CharacterViewer = ({character, animation}) => {
     const gateway = useGateway()
     const [URL, setURL] = useState()
+    const mixerRef = useRef()
+    const pause = useRef(true)
+    const duration = useRef(0)
 
     const [getAnimationURL, isAnimationURLLoading, getAnimationURLError] = useFetching(async (modelId, animationId) => {
         let response = await gateway.animate(modelId, animationId)
-        console.log(response.data.file.download_url)
         setURL(response.data.file.download_url)
     })
 
@@ -56,7 +59,7 @@ const CharacterViewer = ({character, animation}) => {
                     <group>
                         <Stage>
                             {URL &&
-                                <CharacterFBXModel URL={URL}/>
+                                <CharacterFBXModel URL={URL} mixerRef={mixerRef} pause={pause} duration={duration}/>
                             }
                         </Stage>
                         <Environment
@@ -72,7 +75,12 @@ const CharacterViewer = ({character, animation}) => {
                 </PerspectiveCamera>
             </Suspense>
         </Canvas>
-        <div className={classes.downloadAnimatedCharacterButton} onClick={()=> window.open(URL, "_blank")}>
+        {animation &&
+            <Canvas style={{height: '45px'}}>
+                <R3FSlider pause={pause} duration={duration} mixerRef={mixerRef}/>
+            </Canvas>
+        }
+        <div className={classes.downloadAnimatedCharacterButton} onClick={() => window.open(URL, "_blank")}>
             Скачать файл
         </div>
     </div>);
